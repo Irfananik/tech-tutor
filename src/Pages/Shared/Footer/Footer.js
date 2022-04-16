@@ -8,7 +8,7 @@ const Footer = () => {
                 <p style={{fontWeight:'bold'}}>Email:<span> anik.10@gmial.com</span></p>
                 <p style={{fontWeight:'bold'}}>Adress:<span> Basundhara, Dhaka, Bangladesh</span></p>
             </div>
-            All copyright deserved by &copy; techTutorBd-2022
+            All copyright deserved by &copy; techTutorGm-2022
         </div>
     );
 };
