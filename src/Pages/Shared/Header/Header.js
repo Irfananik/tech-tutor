@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
+        <div >
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
                     <Navbar.Brand as={Link} to='/'>
@@ -13,7 +13,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                        <Nav.Link style={{fontSize:'24px'}} as={Link} to='/'>TechTutorBd</Nav.Link>
+                            <Nav.Link style={{ fontSize: '24px' }} as={Link} to='/'>TechTutorBd</Nav.Link>
                         </Nav>
                         <Nav>
                             <Nav.Link as={Link} to='/'>Home</Nav.Link>
