@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -29,9 +29,13 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
 
-    if(user){
-        navigate('/')
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/"
+
+    if (user) {
+        navigate(from, { replace: true })
     }
+
 
     return (
         <div className="container my-5">

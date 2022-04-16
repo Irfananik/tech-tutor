@@ -10,6 +10,7 @@ import Banner from './Pages/Shared/Banner/Banner';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import RequireAuth from './RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -17,15 +18,20 @@ function App() {
       <Header />
       <Banner />
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/:checkoutId' element={<CheckOut/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/blog' element={<Blog/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
-        <Route path='/*' element={<NotFound/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/:checkoutId' element={  
+          <RequireAuth>
+            <CheckOut />
+          </RequireAuth>
+        }>
+        </Route>
+        <Route path='/about' element={<About />}></Route>
+        <Route path='/blog' element={<Blog />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/signup' element={<SignUp />}></Route>
+        <Route path='/*' element={<NotFound />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
