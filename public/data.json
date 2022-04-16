@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "img": "https://i.ibb.co/SrWVnDq/fundamental-prog-1.jpg",
+        "course": "Fundamental of programming",
+        "discription": "It's a basic programming knowledge course with techTutorBd",
+        "price": "39"
+    },
+    {
+        "id": "2",
+        "img": "https://i.ibb.co/9hKFwt2/Prog-pyhton-1.jpg",
+        "course": "Programming with python",
+        "discription": "This course is intermediate lavel with python",
+        "price": "49"
+    },
+    {
+        "id": "3",
+        "img": "https://i.ibb.co/S6TPW2Z/fullstackweb-1.jpg",
+        "course": "Fullstak web development with marn",
+        "discription": "This is a fullstak web development course with marn",
+        "price": "99"
+    }
+]
