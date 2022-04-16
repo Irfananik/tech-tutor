@@ -18,6 +18,10 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    if(user){
+        navigate('/')
+    }
+
     const handleSignUpSubmit = (event) => {
         event.preventDefault()
         const name = event.target.name.value
