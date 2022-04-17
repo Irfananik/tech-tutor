@@ -21,7 +21,7 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
 
     if (user) {
         navigate('/')
@@ -38,9 +38,9 @@ const SignUp = () => {
         const email = event.target.email.value
         const password = event.target.password.value
 
-        if (agre) {
-            createUserWithEmailAndPassword(email, password)
-        }
+
+        createUserWithEmailAndPassword(email, password)
+
 
     }
 
@@ -58,7 +58,7 @@ const SignUp = () => {
                     <Form.Control type="password" name="password" placeholder="Password" required />
                 </Form.Group>
                 <p className="mt-2">{errorElement}</p>
-                <input onClick={() => setAgre(!agre)}  type="checkbox" name="terms" id="terms" />
+                <input onClick={() => setAgre(!agre)} type="checkbox" name="terms" id="terms" />
                 <level className={`${agre ? '' : 'text-danger'}`} htmlFlor='terms'> Accept our terms and conditions </level> <br /> <br />
                 <div className="d-flex aling-items-center justify-content-center">
                     <Button disabled={!agre} style={{}} variant="primary" type="submit">

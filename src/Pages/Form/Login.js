@@ -23,7 +23,7 @@ const Login = () => {
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth, {sendEmailVerification:true})
+    ] = useSignInWithEmailAndPassword(auth)
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
