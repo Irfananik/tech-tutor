@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -53,6 +54,7 @@ const SignUp = () => {
                 </div>
             </Form>
             <p className="mt-3 text-center" style={{ color: '#E5B429' }}>Allready you have account? <span onClick={navigateToLogin} className="text-primary" style={{ cursor: 'pointer', color: '' }}>Login</span> </p>
+            <SocialLogin/>
         </div>
     );
 };
