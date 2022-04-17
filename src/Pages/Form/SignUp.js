@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,8 @@ import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
+    const [agre, setAgre] = useState(false)
+
     const navigate = useNavigate()
 
     let errorElement
@@ -36,7 +38,10 @@ const SignUp = () => {
         const email = event.target.email.value
         const password = event.target.password.value
 
-        createUserWithEmailAndPassword(email, password)
+        if (agre) {
+            createUserWithEmailAndPassword(email, password)
+        }
+
     }
 
     return (
@@ -53,10 +58,10 @@ const SignUp = () => {
                     <Form.Control type="password" name="password" placeholder="Password" required />
                 </Form.Group>
                 <p className="mt-2">{errorElement}</p>
-                <input type="checkbox" name="terms" id="terms" />
-                <level htmlFlor='terms'> Accept our terms and conditions </level> <br /> <br />
+                <input onClick={() => setAgre(!agre)}  type="checkbox" name="terms" id="terms" />
+                <level className={`${agre ? '' : 'text-danger'}`} htmlFlor='terms'> Accept our terms and conditions </level> <br /> <br />
                 <div className="d-flex aling-items-center justify-content-center">
-                    <Button style={{}} variant="primary" type="submit">
+                    <Button disabled={!agre} style={{}} variant="primary" type="submit">
                         SignUp
                     </Button>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -24,12 +24,22 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth)
 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+        auth
+    )
+
     const handleLogin = (event) => {
         event.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
 
         signInWithEmailAndPassword(email, password)
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value
+        await sendPasswordResetEmail(email)
+        alert('Sent email')
     }
 
     const location = useLocation()
@@ -63,7 +73,7 @@ const Login = () => {
                 </div>
             </Form>
             <p className="mt-3 text-center" style={{}}>Are you new here? <span onClick={navigateToSignUp} className="text-primary" style={{ cursor: 'pointer' }}>SignUp</span> </p>
-            <p className="mt-2 text-center" style={{}}>Forget your password? <span className="text-primary" style={{ cursor: 'pointer' }}>Reset Password</span> </p>
+            <p className="mt-2 text-center" style={{}}>Forget your password? <span onClick={resetPassword} className="text-primary" style={{ cursor: 'pointer' }}>Reset Password</span> </p>
             <SocialLogin />
         </div>
     );
