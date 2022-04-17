@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ const Login = () => {
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth)
+    ] = useSignInWithEmailAndPassword(auth, {sendEmailVerification:true})
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
@@ -52,6 +53,10 @@ const Login = () => {
     if (error) {
         errorElement =
             <p className="text-danger">Error: {error?.message}</p>
+    }
+
+    if(loading) {
+        <Loading/>
     }
 
 
