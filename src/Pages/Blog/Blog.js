@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div className="container my-5">
-            <h2 className="text-center" style={{ color: '#566FAA', fontWeight: 'bold' }}>Blog</h2>
+            <h1 className="text-center" style={{ color: '#566FAA', fontWeight: 'bold' }}>Blog</h1>
             <div className="container my-5">
                 <h3 style={{ color: '#567BAD', fontWeight: 'bold', textAlign: 'left' }}>Difference between authorization and authentication:</h3>
                 <div className='my-4' style={{ textAlign: 'left' }}>
