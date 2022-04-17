@@ -8,6 +8,8 @@ import SocialLogin from './SocialLogin';
 const SignUp = () => {
     const navigate = useNavigate()
 
+    let errorElement
+
     const navigateToLogin = () => {
         navigate('/login')
     }
@@ -19,8 +21,13 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    if(user){
+    if (user) {
         navigate('/')
+    }
+
+    if (error) {
+        errorElement =
+            <p className="text-danger">Error: {error?.message}</p>
     }
 
     const handleSignUpSubmit = (event) => {
@@ -40,11 +47,12 @@ const SignUp = () => {
                     <Form.Control type="text" name="name" placeholder="Enter name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="email" name="email" placeholder="Enter email" />
+                    <Form.Control type="email" name="email" placeholder="Enter email" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" name="password" placeholder="Password" />
+                    <Form.Control type="password" name="password" placeholder="Password" required />
                 </Form.Group>
+                <p className="mt-2">{errorElement}</p>
                 <input type="checkbox" name="terms" id="terms" />
                 <level htmlFlor='terms'> Accept our terms and conditions </level> <br /> <br />
                 <div className="d-flex aling-items-center justify-content-center">
@@ -54,7 +62,7 @@ const SignUp = () => {
                 </div>
             </Form>
             <p className="mt-3 text-center" style={{ color: '#E5B429' }}>Allready you have account? <span onClick={navigateToLogin} className="text-primary" style={{ cursor: 'pointer', color: '' }}>Login</span> </p>
-            <SocialLogin/>
+            <SocialLogin />
         </div>
     );
 };
