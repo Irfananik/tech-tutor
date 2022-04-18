@@ -23,6 +23,7 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+    
 
     const [updateProfile, updating, profileError] = useUpdateProfile(auth)
 
