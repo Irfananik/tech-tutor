@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
+import Loading from '../Shared/Loading/Loading';
 
 const SignUp = () => {
     const [agre, setAgre] = useState(false)
@@ -21,27 +22,34 @@ const SignUp = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
+
+    const [updateProfile, updating, profileError] = useUpdateProfile(auth)
 
     if (user) {
-        navigate('/')
+        console.log('user', user)
     }
 
-    if (error) {
+    if (error || profileError) {
         errorElement =
             <p className="text-danger">Error: {error?.message}</p>
     }
 
-    const handleSignUpSubmit = (event) => {
+    if (loading || updating) {
+        return <Loading />
+    }
+
+    const handleSignUpSubmit = async (event) => {
         event.preventDefault()
         const name = event.target.name.value
         const email = event.target.email.value
         const password = event.target.password.value
 
+        await createUserWithEmailAndPassword(email, password)
 
-        createUserWithEmailAndPassword(email, password)
-
-
+        await updateProfile({ displayName: name })
+        console.log('Updated profile')
+        navigate('/')
     }
 
     return (
