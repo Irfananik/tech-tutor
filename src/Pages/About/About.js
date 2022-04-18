@@ -10,7 +10,7 @@ const About = () => {
                     <img src={'https://i.ibb.co/w46jBQT/oooo-plus-35.png'} className="card-img-top w-25" alt="..." />
                 </div>
                 <div className="card-body">
-                    <h4 className="card-title my-2" style={{ color: '#567BAD', fontWeight: 'bold' }}>Tech Tutor</h4>
+                    <h4 className="card-title my-2" style={{ color: '#567BAD', fontWeight: 'bold' }}>Golam Morshed</h4>
                     <p className="card-text" style={{ color: '#A2B5DC' }}>Hello, this is Golam Morshed. I'm a independent services provider. I provide various programmig tutorial course which you have seen on the services section. I want to be a professional software developer. I'm willing to work hard for this dream. Also i'm still working hard for my dream. No matter how frustrated i'm, i will continue to work.</p>
                     <Link style={{textDecoration:'none'}} to='/'>See More</Link>
                 </div>
