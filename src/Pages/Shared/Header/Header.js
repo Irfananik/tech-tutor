@@ -13,7 +13,7 @@ const Header = () => {
     }
 
     return (
-        <div >
+        <div className="sticky-top">
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
                     <Navbar.Brand as={Link} to='/'>

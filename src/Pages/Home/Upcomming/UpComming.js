@@ -4,7 +4,7 @@ import { Carousel } from 'react-bootstrap';
 const UpComming = () => {
     return (
         <div className="container my-5">
-            <h1 className="my-5" style={{ color: '#566FAA', fontWeight: 'bold' }}>UpComming Courses</h1>
+            <h2 className="my-5" style={{ color: '#566FAA', fontWeight: 'bold' }}>UpComming Courses</h2>
             <Carousel className="container" variant="dark">
                 <Carousel.Item>
                     <img
