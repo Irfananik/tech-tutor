@@ -37,7 +37,7 @@ const SignUp = () => {
 
     if (loading || updating) {
         return <Loading />
-    }
+    } 
 
     const handleSignUpSubmit = async (event) => {
         event.preventDefault()

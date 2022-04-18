@@ -15,10 +15,10 @@ const Service = ({ service }) => {
             <Card style={{ width: '18rem', padding: '16px' }}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
-                    <Card.Title style={{  }}>Title: {course}</Card.Title>
+                    <Card.Title style={{ color: '#566FAA', fontWeight: 'bold' }}>Title: {course}</Card.Title>
                     <Card.Text>
-                        <span style={{  }}>{discription}</span>
-                        <h6 style={{  }}>Price: ${price}</h6>
+                        <span style={{ color: '#A2B5DC' }}>{discription}</span>
+                        <h5 style={{ color: 'gold', fontWeight: 'bold' }}>Price: ${price}</h5>
                     </Card.Text>
                     <Button onClick={() => handleCheckOut(id)} variant="primary">Checkout</Button>
                 </Card.Body>
